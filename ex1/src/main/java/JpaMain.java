@@ -18,7 +18,7 @@ public class JpaMain {
 
             Member member = new Member();
             member.setUsername("member1");
-            member.setTeamId(team.getId());//객체 지향 스럽지 않음.
+            member.setTeam(team); //조금더 객체지향적
             em.persist(member);
 
             Member findMember = em.find(Member.class, member.getId());

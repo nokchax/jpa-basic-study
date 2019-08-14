@@ -10,8 +10,8 @@ public class Member {
     @Column(name = "USERNAME")
     private String username;
 
-    @Column(name = "TEAM_ID")
-    private Long teamId;
+//    @Column(name = "TEAM_ID")
+//    private Long teamId;
 
     @ManyToOne //멤버 입장에서는 N 팀 입장에서는 1
     @JoinColumn(name = "TEAM_ID")
@@ -39,13 +39,5 @@ public class Member {
 
     public void setTeam(Team team) {
         this.team = team;
-    }
-
-    public Long getTeamId() {
-        return teamId;
-    }
-
-    public void setTeamId(Long teamId) {
-        this.teamId = teamId;
     }
 }
