@@ -16,6 +16,7 @@ public class Member {
     private String street;
     private String zipcode;
 
+    //이건 좋지 않은 설계..
     @OneToMany(mappedBy = "member")
     private List<Order> orders = new ArrayList<>();
 
