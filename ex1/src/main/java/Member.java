@@ -12,9 +12,8 @@ public class Member {
     @Column(name = "USERNAME")
     private String username;
 
-    @ManyToMany
-    @JoinTable(name = "MEMBER_PRODUCT")
-    private List<Product> products = new ArrayList<>();
+    @OneToMany(mappedBy = "member")
+    private List<MemberProduct> memberProducts = new ArrayList<>();
 
     @ManyToOne
     @JoinColumn(name = "TEAM_ID")
