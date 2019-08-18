@@ -26,6 +26,7 @@ public class JpaMain {
             tx.commit();
         } catch (Exception e) {
             tx.rollback();
+            e.printStackTrace();
         } finally {
             em.close();
         }
