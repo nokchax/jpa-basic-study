@@ -1,9 +1,8 @@
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.EntityTransaction;
-import javax.persistence.Persistence;
+import javax.persistence.*;
+import java.util.List;
 
 public class JpaMain {
+    @SuppressWarnings("JpaQlInspection")
     public static void main(String[] args) {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("hello");
         EntityManager em = emf.createEntityManager();
@@ -22,6 +21,14 @@ public class JpaMain {
             em.persist(member);
 
             System.out.println(member);
+            em.flush();
+            em.clear();
+
+            Integer singleResult = em.createQuery("select t.members.size from Team t", Integer.class)
+                    .getSingleResult();
+
+            System.out.println(singleResult);
+
 
             tx.commit();
         } catch (Exception e) {
